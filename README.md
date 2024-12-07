@@ -69,7 +69,11 @@ The target variable for this dataset is Claim Status, which is used to classify 
 - Prediction: The corresponding model for each cluster is used to make predictions.
 - Save Predictions: The predictions are saved in a CSV file, and display to the web brouser.
 
-
+# Technology
+- Google looker studio
+- Python
+- Flask
+- AWS
 
 ## Installation
 
@@ -90,6 +94,12 @@ Install requirements.txt file
 pip install -r requirements.txt
 
 ``````
+## Info
+- In our flask app there are 3 routs
+  - "/" index
+  - "/prediction": for model prediction.
+  - "/train": for training the model
+you can train the model by using training route
 ## Data Insights & Analysis
 ![Data overview](images/db1.png)
 - In our database, 25% of the data represents fraudulent claims, while 75% corresponds to non-fraudulent claims.
@@ -102,6 +112,12 @@ pip install -r requirements.txt
 - Dased on the correlation plot, it is evident that total_claim_amount, injury_claim, property_claim, and vehicle_claim exhibit a high degree of correlation with one another.
 ![Data overview](images/Performacce_metrics.png)
 - Based on the performance metrics comparison above, it is clear that our decision tree model outperforms the others.
+# Creating UI for user Interaction
 ![Data overview](images/UI.png)
 ![Data overview](images/op_UI.png)
+
+# Run the code :
+```bash
+python main.py
+````
 
