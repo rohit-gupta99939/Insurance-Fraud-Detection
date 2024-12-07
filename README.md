@@ -92,3 +92,8 @@ pip install -r requirements.txt
 ``````
 ## Data Insights & Analysis
 ![Data overview](images/db1.png)
+- In our database, 25% of the data represents fraudulent claims, while 75% corresponds to non-fraudulent claims.
+- Fraudulent claims are more commonly associated with individuals in the 30-40 age group.
+![Data overview](images/db2.png)
+- The highest number of claims were reported from Springfield city.
+![Data overview](images/all_count.png)
