@@ -97,7 +97,7 @@ pip install -r requirements.txt
 ![Data overview](images/db2.png)
 - The highest number of claims were reported from Springfield city.
 ![Data overview](images/all_count.png)
-![Data overview](images/relation_age_fraud.png)
+![Data overview](images/realation_age_fraud.png.png)
 ![Data overview](images/relation_between_columns.png)
 - Dased on the correlation plot, it is evident that total_claim_amount, injury_claim, property_claim, and vehicle_claim exhibit a high degree of correlation with one another.
 ![Data overview](images/Performacce_metrics.png)
