@@ -46,16 +46,47 @@ https://www.berkshireinsuranceservices.com/arecombinedsinglelimitsbetter
 
 The target variable for this dataset is Claim Status, which is used to classify the claims as either legitimate or fraudulent. The dataset contains both numerical and categorical variables, which will require preprocessing for model training. The aim is to develop a predictive model capable of accurately distinguishing between fraudulent and non-fraudulent insurance claims based on these features.
 
+## Roadmap
 
-### STEP 01- Create a conda environment after opening the repository
+1. Data Validation
+
+- File Name Validation: Files are validated against a regex pattern for correct formatting. Valid files are moved to Good_Data_Folder, invalid ones to Bad_Data_Folder.
+- Column Validation: We check the number and names of columns, ensuring they match the schema. Mismatches move files to the Bad_Data_Folder.
+- Datatype Validation: Columns are checked for correct data types. Files with incorrect datatypes are moved to the Bad_Data_Folder.
+- Null Values: Files with columns containing only null values are discarded.
+2. Data Insertion in Database
+- Database Connection: A database is created or connected to.
+- Table Creation: A table named Good_Data is created if it doesn't exist, and valid data is inserted.
+- File Insertion: Files from the Good_Data_Folder are inserted into the database. Invalid files are moved to Bad_Data_Folder.
+3. Model Training
+- Data Export: Data is exported from the database as a CSV file.
+- Preprocessing: Columns are dropped, null values are imputed, categorical values are encoded, and numeric values are scaled.
+- Clustering: KMeans clustering is applied, and optimal clusters are selected using the elbow method and KneeLocator.
+- Model Selection: SVM and XGBoost models are tested for each cluster, and the best-performing model is saved.
+4. Prediction
+- Data Preprocessing: New data is preprocessed in the same way as the training data.
+- Clustering: The pre-trained KMeans model predicts the cluster for the new data.
+- Prediction: The corresponding model for each cluster is used to make predictions.
+- Save Predictions: The predictions are saved in a CSV file, and display to the web brouser.
+
+
+
+## Installation
+
+Install the python and activate it: 
 
 ```bash
 conda create -n fraud python=3.9 -y
-```
-source ~/anaconda3/etc/profile.d/conda.sh
 
+source ~/anaconda3/etc/profile.d/conda.sh
+```
 
 ```bash
 conda activate fraud
 
-```
+``````
+Install requirements.txt file
+```bash
+pip install -r requirements.txt
+
+``````
