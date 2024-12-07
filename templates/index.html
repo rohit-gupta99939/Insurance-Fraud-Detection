@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV File Upload</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+        }
+        
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .upload-section, .info-section, .project-info-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .upload-section {
+            border: 2px dashed #4CAF50;
+        }
+
+        .upload-section input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #4CAF50;
+            border-radius: 4px;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .upload-section button {
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .upload-section button:hover {
+            background-color: #45a049;
+        }
+
+        .info-section h2, .project-info-section h2 {
+            color: #4CAF50;
+        }
+
+        .info-section p, .project-info-section p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Scrollable Table Container */
+        .table-container {
+            max-height: 400px;  /* Set the max height for the table */
+            overflow-y: auto;   /* Enable vertical scrolling if the table overflows */
+            border: 1px solid #ddd;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <h1>Upload Your CSV Files</h1>
+            <form action="/predict" method="POST" enctype="multipart/form-data">
+                <label for="files">Choose CSV files (you can select multiple):</label>
+                <input type="file" name="files" accept=".csv" multiple required>
+                <button type="submit">Upload Files</button>
+            </form>
+        </div>
+
+        <!-- Display CSV Table -->
+        {% if table %}
+        <div class="info-section">
+            <h2>Result CSV Data</h2>
+            <div class="table-container">
+                <div>{{ table|safe }}</div> <!-- Render the HTML table inside a scrollable container -->
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Project Information Section -->
+        <div class="project-info-section">
+            <h2>Project Information</h2>
+            <p>This project aims to develop a classification methodology for determining fraudulent insurance claims. Below is an outline of the project:</p>
+            <ul>
+                <li><strong>Data Description:</strong> The client sends data in batches containing various attributes such as customer information, policy details, incident specifics, and claims information.</li>
+                <li><strong>Target Label:</strong> The key target is whether the claim is fraudulent or not, with values 'Y' for fraud and 'N' for non-fraud.</li>
+                <li><strong>Data Validation:</strong> Several validation steps are performed on the incoming data, including file name validation, column count validation, and data type validation. Invalid files are moved to a "Bad_Data_Folder."</li>
+                <li><strong>Data Insertion:</strong> Valid data is inserted into a database, where tables are created based on the schema provided by the client. The data is then prepared for model training.</li>
+                <li><strong>Model Training:</strong> Various preprocessing steps are performed on the data before training the model. KMeans clustering is used to group the data, and the best classification models (SVM and XGBoost) are selected for each cluster.</li>
+                <li><strong>Prediction:</strong> After model training, the system predicts fraudulent claims using the respective models based on the clusters generated during training.</li>
+            </ul>
+            <p>For detailed steps, validation, model selection, and clustering process, please refer to the comprehensive project description provided by the client.</p>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            
+        </div>
+
+    </div>
+
+</body>
+</html>
