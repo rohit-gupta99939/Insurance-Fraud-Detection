@@ -97,3 +97,6 @@ pip install -r requirements.txt
 ![Data overview](images/db2.png)
 - The highest number of claims were reported from Springfield city.
 ![Data overview](images/all_count.png)
+![Data overview](images/relation_age_fraud.png)
+![Data overview](images/relation_between_columns.png)
+![Data overview](images/Performance_metrics.png)
