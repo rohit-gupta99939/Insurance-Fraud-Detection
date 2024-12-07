@@ -99,7 +99,8 @@ pip install -r requirements.txt
 ![Data overview](images/all_count.png)
 ![Data overview](images/relation_age_fraud.png)
 ![Data overview](images/relation_between_columns.png)
-![Data overview](images/Performance_metrics.png)
+- Dased on the correlation plot, it is evident that total_claim_amount, injury_claim, property_claim, and vehicle_claim exhibit a high degree of correlation with one another.
+![Data overview](images/Performacce_metrics.png)
 ![Data overview](images/UI.png)
 ![Data overview](images/op_UI.png)
 
