@@ -90,3 +90,5 @@ Install requirements.txt file
 pip install -r requirements.txt
 
 ``````
+## Data Insights & Analysis
+![Data overview](images/db1.png)
