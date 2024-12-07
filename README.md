@@ -100,3 +100,6 @@ pip install -r requirements.txt
 ![Data overview](images/relation_age_fraud.png)
 ![Data overview](images/relation_between_columns.png)
 ![Data overview](images/Performance_metrics.png)
+![Data overview](images/UI.png)
+![Data overview](images/op_UI.png)
+
